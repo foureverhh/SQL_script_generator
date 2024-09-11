@@ -1,0 +1,3 @@
+rule_id,parent_rule_id,type,value
+L100,null,XOR,null
+L110,L100,HIGHER_LEVEL,null

@@ -1,0 +1,2 @@
+delete from VUX_MANDATORY_SUBJECT_RULE25 where  rule_id='L100' AND DEF_SUBJECT_KEY = 'SVE,SVA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is null;
+delete from VUX_MANDATORY_SUBJECT_RULE25 where  rule_id='L110' AND DEF_SUBJECT_KEY = 'SVE,SVA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is L100;
