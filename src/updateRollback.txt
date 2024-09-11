@@ -1,1 +1,1 @@
-update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=null where rule_id='026' AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id='L100EN25';
+update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=null where rule_id='026' AND DEF_SUBJECT_KEY = 'ENG' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id='L100EN25';

@@ -49,8 +49,8 @@ public class Main {
                     .build();
             records = csvFormat.parse(frUpdate);
             for (CSVRecord record : records) {
-                String updateSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n",record.get(1),record.get(0),record.get(2));
-                String updateRollbackSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id=%s;%n",record.get(2),record.get(0),record.get(1));
+                String updateSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENG' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n",record.get(1),record.get(0),record.get(2));
+                String updateRollbackSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENG' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id=%s;%n",record.get(2),record.get(0),record.get(1));
                 fw3.write(updateSQL);
                 fw4.write(updateRollbackSQL);
             }
