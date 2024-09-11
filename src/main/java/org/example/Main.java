@@ -27,9 +27,19 @@ public class Main {
                     .setSkipHeaderRecord(true)
                     .build();
             Iterable<CSVRecord> records = csvFormat.parse(frInsert);
+            String insertSQL,insertRollbackSQL;
             for (CSVRecord record : records) {
-                String insertSQL = String.format("insert into VUX_MANDATORY_SUBJECT_RULE25 (DEF_SUBJECT_KEY,DEF_SCOPE,RULE_ID,PARENT_RULE_ID,TYPE,VALUE,ACTIVE) values ('SVE,SVA','VOCATIONAL_PROGRAM','%s',%s,'%s',%s,'1');%n",record.get(0),record.get(1),record.get(2),record.get(3));
-                String insertRollbackSQL = String.format("delete from VUX_MANDATORY_SUBJECT_RULE25 where  rule_id='%s' AND DEF_SUBJECT_KEY = 'SVE,SVA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n",record.get(0),record.get(1));
+                if(record.get(1).equals("null") && record.get(3).equals("null")) {
+                    insertSQL = String.format("insert into VUX_MANDATORY_SUBJECT_RULE25 (DEF_SUBJECT_KEY,DEF_SCOPE,RULE_ID,PARENT_RULE_ID,TYPE,VALUE,ACTIVE) values ('ENGE','VOCATIONAL_PROGRAM','%s',%s,'%s',%s,'1');%n", record.get(0), record.get(1), record.get(2), record.get(3));
+                    insertRollbackSQL = String.format("delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n", record.get(0), record.get(1));
+                }else if (record.get(3).equals("null")) {
+                    insertSQL = String.format("insert into VUX_MANDATORY_SUBJECT_RULE25 (DEF_SUBJECT_KEY,DEF_SCOPE,RULE_ID,PARENT_RULE_ID,TYPE,VALUE,ACTIVE) values ('ENGE','VOCATIONAL_PROGRAM','%s','%s','%s',%s,'1');%n",record.get(0),record.get(1),record.get(2),record.get(3));
+                    insertRollbackSQL = String.format("delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = '%s';%n",record.get(0),record.get(1));
+                } else {
+                    insertSQL = String.format("insert into VUX_MANDATORY_SUBJECT_RULE25 (DEF_SUBJECT_KEY,DEF_SCOPE,RULE_ID,PARENT_RULE_ID,TYPE,VALUE,ACTIVE) values ('ENGE','VOCATIONAL_PROGRAM','%s','%s','%s','%s','1');%n",record.get(0),record.get(1),record.get(2),record.get(3));
+                    insertRollbackSQL = String.format("delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = '%s';%n",record.get(0),record.get(1));
+                }
+
                 fw1.write(insertSQL);
                 fw2.write(insertRollbackSQL);
             }
@@ -39,8 +49,8 @@ public class Main {
                     .build();
             records = csvFormat.parse(frUpdate);
             for (CSVRecord record : records) {
-                String updateSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id='%s' where rule_id='%S' AND DEF_SUBJECT_KEY = 'SVE,SVA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n",record.get(1),record.get(0),record.get(2));
-                String updateRollbackSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'SVE,SVA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id=%s;%n",record.get(2),record.get(0),record.get(1));
+                String updateSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is %s;%n",record.get(1),record.get(0),record.get(2));
+                String updateRollbackSQL = String.format("update VUX_MANDATORY_SUBJECT_RULE25 set parent_rule_id=%s where rule_id=%s AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id=%s;%n",record.get(2),record.get(0),record.get(1));
                 fw3.write(updateSQL);
                 fw4.write(updateRollbackSQL);
             }
