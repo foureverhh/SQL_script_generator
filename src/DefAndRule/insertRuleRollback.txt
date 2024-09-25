@@ -1,0 +1,12 @@
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='SVEN,SVEA' AND DEF_SUBJECT_KEY = 'L100SV25' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is null;
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='L110SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L100SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='L120SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L110SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='L121SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L110SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='120SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L120SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='121SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L120SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='L130SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L121SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='L131SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L121SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='130SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L130SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='131SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L130SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='132SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L131SV25';
+delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id='133SV25' AND DEF_SUBJECT_KEY = 'SVEN,SVEA' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L131SV25';

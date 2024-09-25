@@ -1,6 +1,0 @@
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=L100EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id is null;
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=L110EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L100EN25';
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=L120EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L110EN25';
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=110EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L110EN25';
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=120EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L120EN25';
-delete from VUX_MANDATORY_SUBJECT_RULE25 where rule_id=121EN25 AND DEF_SUBJECT_KEY = 'ENGE' AND def_scope = 'VOCATIONAL_PROGRAM' and parent_rule_id = 'L120EN25';
